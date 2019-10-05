@@ -1,4 +1,4 @@
-package com.patterns_ood.strategy;
+package com.patterns.strategy;
 
 import java.io.BufferedReader;
 import java.io.IOException;

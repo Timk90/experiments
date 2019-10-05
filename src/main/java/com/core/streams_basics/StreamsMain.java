@@ -1,6 +1,6 @@
-package com.streams_basics;
+package com.core.streams_basics;
 
-import com.lambda_exp.User;
+import com.core.lambda_exp.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.patterns_ood.strategy;
+package com.patterns.strategy;
 
 public interface PaymentStrategy {
 

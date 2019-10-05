@@ -1,4 +1,4 @@
-package com.lambda_exp;
+package com.core.lambda_exp;
 
 import java.util.HashMap;
 import java.util.Map;
