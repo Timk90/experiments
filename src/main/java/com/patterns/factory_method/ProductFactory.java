@@ -2,6 +2,10 @@ package com.patterns.factory_method;
 
 import java.util.Random;
 
+/**
+ * Фабрика по созданию посуды.
+ * Можно создать даже случайную тарелку или ложку
+ */
 public class ProductFactory {
 
     static int dishCounter = 0;
@@ -10,8 +14,6 @@ public class ProductFactory {
 
     private ProductFactory() {
     }
-
-    ;
 
     public static Product makeProduct(ProductTypes type) {
         switch (type) {
@@ -26,16 +28,24 @@ public class ProductFactory {
                 return new Spoon();
             default:
                 System.out.println("Unknown product type");
-                return null;
+                throw new IllegalArgumentException();
         }
     }
 
+    /**
+     * Создает случайный элемент посуды
+     *
+     * @return экземпляр наследник класса Product
+     */
     public static Product getRandomProduct() {
         Random random = new Random();
         ProductTypes type = ProductTypes.values()[random.nextInt(ProductTypes.values().length)];
         return makeProduct(type);
     }
 
+    /**
+     * Считает всю посуду, что насоздавал.
+     */
     public static void getCounters() {
         System.out.println("Number 0f created dishes: " + dishCounter);
         System.out.println("Number 0f created glasses: " + glassCounter);

@@ -27,6 +27,10 @@ public class StreamsMain {
         list.add(null);
 
 
+        /**
+         * filter - пример промежуточной функции
+         * count - пример терминальной функции
+         */
         //counting number of "Third" fields
         long count = list.stream().filter((p) -> p != null && p.equals("Third")).count();
 

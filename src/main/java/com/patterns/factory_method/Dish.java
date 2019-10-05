@@ -5,6 +5,6 @@ public class Dish extends Product {
 
     @Override
     public void getProduct() {
-        System.out.println("I am a dish extending product");
+        System.out.println("I am a dish extending Product");
     }
 }
