@@ -2,6 +2,7 @@ package com.patterns.singleton;
 
 public class Singleton {
 
+    //volatile - значит , что разные нити будут работать с мастер-копией
     private static volatile Singleton instance;
 
     private String value;
