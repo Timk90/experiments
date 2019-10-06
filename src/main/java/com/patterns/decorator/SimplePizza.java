@@ -1,4 +1,4 @@
-package com.decorator;
+package com.patterns.decorator;
 
 public class SimplePizza implements Pizza {
     @Override
