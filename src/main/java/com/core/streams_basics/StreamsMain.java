@@ -30,6 +30,13 @@ public class StreamsMain {
         /**
          * filter - пример промежуточной функции
          * count - пример терминальной функции
+         *
+         * Streams use functional interfaces:
+         * Predicate - boolean test(T t, R r);
+         * Consumer - void accept(T t);
+         * Function - R apply(T t);
+         * BinaryOperator - T foo(T t1, T t2);
+         *
          */
         //counting number of "Third" fields
         long count = list.stream().filter((p) -> p != null && p.equals("Third")).count();
@@ -48,6 +55,7 @@ public class StreamsMain {
 
         DoubleStream.of(2.0, 3.3, 5.0).forEach(System.out::println);
 
+
         String[] arr = {"First", "Second", "Third"};
         Stream<String> stream = Arrays.stream(arr);
         stream.filter(val -> !val.equals("First")).forEach(System.out::println);
@@ -59,8 +67,17 @@ public class StreamsMain {
         Stream<User> userStream = Stream.of(new User("Tim", "Brown"), new User("Tom", "Reddl"));
         userStream.map(User::getName).forEach(System.out::println);
 
+        Stream<String> stream1 = Stream.of("1", "2", "3");
+        stream1.reduce((a, b) -> a.compareTo(b) > 0 ? a : b);
+
+        /**
+         * Functional interface function
+         * Function<T, R> - method R apply(T t)
+         * translate T to R
+         */
         Function<Double, String> function = (val) -> "double value is : " + val.toString();
         System.out.println(function.apply(123.0));
+
 
     }
 }
