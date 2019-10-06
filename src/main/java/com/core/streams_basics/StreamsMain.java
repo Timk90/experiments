@@ -5,8 +5,10 @@ import com.core.lambda_exp.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -25,7 +27,6 @@ public class StreamsMain {
         list.add("Third");
         list.add("Five");
         list.add(null);
-
 
         /**
          * filter - пример промежуточной функции
@@ -78,6 +79,23 @@ public class StreamsMain {
         Function<Double, String> function = (val) -> "double value is : " + val.toString();
         System.out.println(function.apply(123.0));
 
+        /**
+         * Stream to Collection translation
+         */
+        Stream<Integer> integerStream = Stream.of(1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 9);
+        integerStream.collect(Collectors.toList()).forEach(System.out::print);
+        System.out.println();
+
+        Stream<Integer> integerStream1 = Stream.of(1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 9);
+        integerStream1.collect(Collectors.toCollection(TreeSet::new)).forEach(System.out::print);
+        System.out.println();
+
+        Stream<Integer> integerStream2 = Stream.of(1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 9);
+        integerStream2.collect(ArrayList::new, ArrayList::add, ArrayList::addAll).forEach(System.out::print);
+        System.out.println();
+
+        Stream<Item> itemStream = Stream.of(new Item(1, "First"), new Item(2, "Second"));
+        itemStream.collect(Collectors.toMap((item) -> item.getPrice(), (item) -> item.getName())).forEach((key, value) -> System.out.println("Key: " + key + ", valuer: " + value));
 
     }
 }
